@@ -1,1 +1,30 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div闪烁</title>
+	<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+	<style type="text/css">
+		#box{width: 200px;height: 200px;margin:0 auto;background-color: red;text-align: center;
+			cursor: pointer;color: #fff;line-height: 200px;font-family: 微软雅黑;}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$('#box').click(function(){
+				var i=0;
+				$(this).css('display','none');
+				clearInterval(times);
+				var times=setInterval(function(){
+					if(i++ % 2){
+						$("#box").css('display','none');
+					}else{$("#box").css('display','block')};
+					if(i>6){clearInterval(times)};
+				},80);
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="box">点我就闪</div>
+</body>
+</html>
